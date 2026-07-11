@@ -9,3 +9,6 @@ jobs:
 
     steps:
       - run: echo "Hello Github Actions!"
+      - run: pwd
+      - run: ls
+      - run: echo "Workflow completed/finished"
