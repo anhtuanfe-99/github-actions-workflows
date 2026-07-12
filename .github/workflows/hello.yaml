@@ -14,6 +14,6 @@ jobs:
         with:
           node-version: 24
 
-      - run: npm ci
+      - run: pnpm ci
 
-      - run: npm list --depth=0
+      - run: pnpm list --depth=0
