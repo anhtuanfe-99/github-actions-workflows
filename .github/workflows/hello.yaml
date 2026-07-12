@@ -1,14 +1,14 @@
-name: My First Workflow
+name: Checkout demo
 
 on:
   push
 
 jobs:
-  hello:
+  inspect-project:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "Hello Github Actions!"
+      - uses: actions/checkout@v4
       - run: pwd
       - run: ls
-      - run: echo "Workflow completed/finished"
+      - run: cat package.json
