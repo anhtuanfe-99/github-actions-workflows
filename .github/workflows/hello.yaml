@@ -1,14 +1,19 @@
-name: Checkout demo
+name: Node Demo
 
 on:
   push
 
 jobs:
-  inspect-project:
+  inspect-node:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v7
-      - run: pwd
-      - run: ls
-      - run: cat package.json
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: node --version
+
+      - run: npm --version
