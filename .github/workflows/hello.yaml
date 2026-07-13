@@ -7,15 +7,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v7
+      - name: Checkout repository
+        uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v6
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
         with:
           node-version-file: "package.json"
+          cache: "pnpm"
 
-      - run: corepack enable
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - run: pnpm install --frozen-lockfile
-
-      - run: node --version
-      - run: pnpm --version
+      - name: Check Node.js version
+        run: node --version
+      - name: Check pnpm version
+        run: pnpm --version
