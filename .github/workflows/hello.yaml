@@ -1,7 +1,6 @@
 name: Node Demo
 
-on:
-  push
+on: push
 
 jobs:
   inspect-node:
@@ -13,10 +12,10 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-      
-      - run: node --version
-      - run: pnpm --version
 
       - run: corepack enable
 
       - run: pnpm install --frozen-lockfile
+
+      - run: node --version
+      - run: pnpm --version
